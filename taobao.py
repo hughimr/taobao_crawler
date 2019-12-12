@@ -117,14 +117,15 @@ def getTaobaoSigns(arr):
 
 	headers = {
 		"allow_access": "true",
-		"user-agent": "douyinfuck"
+		"user-agent": "douyin"
 	}
 
-	result = requests.post(requestURL, data=arr, timeout=20, headers=headers)
+	result = requests.post(requestURL, data=json.dumps(arr), timeout=20, headers=headers)
+	pprint(result)
 	dataStr = ""
 	if result.status_code == requests.codes.ok:
 		dataStr = result.text
-	pprint(dataStr)
+	pprint(result.status_code)
 	return dataStr
 
 

@@ -21,8 +21,8 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 	ttid = '701186@taobao_android_9.1.0'
 	deviceId = "Akuvfv2rDaTsFg2EJoAi5vGWE8wGLLTOVgrx3XMZ2a_M"
 	features = "27"
-	pageId = "http://item.taobao.com/item.htm"
-	pageName = "com.taobao.android.detail.wrapper.activity.DetailActivity"
+	pageId = "https://market.m.taobao.com/app/tmall-wireless/group-card-618/pages/cc-shareItem?wh_ttid=native"
+	pageName = "market.m.taobao.com/app/tmall-wireless/group-card-618/pages/cc-shareItem"
 	b64Data = base64.b64encode(data.encode("utf-8"))
 	pprint(b64Data)
 	postData = {
@@ -38,10 +38,11 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 		"t": str(t),
 		"api": api,
 		"useWua": "1",
-		"data": b64Data,
+		"data": str(b64Data, 'utf-8'),
 		"pageId": pageId,
 		"pageName": pageName
 	}
+	pprint(postData)
 	result = getTaobaoSigns(postData)
 
 	jobj = json.loads(result)
@@ -49,13 +50,13 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 
 	pprint(dataJobj['x-mini-wua'])
 	body = "data=" + quote_plus(data)
-	requestUrl = "https://guide-acs.m.taobao.com/gw/{0}/{1}".format(api, v)
+	requestUrl = "https://guide-acs.m.taobao.com/gw/{0}/{1}/".format(api, v)
 	proxies = None
 
-	# proxies = {
-	# 	'http': 'http://127.0.0.1:8888',
-	# 	'https': 'https://127.0.0.1:8888'
-	# }
+	proxies = {
+		'http': 'http://127.0.0.1:8888',
+		'https': 'https://127.0.0.1:8888'
+	}
 
 
 	headers = {
@@ -76,8 +77,9 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 		"x-region-channel": "CN",
 		"f-refer": "mtop",
 		"content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+		"A-SLIDER-Q": "appKey%3D21646297%26ver%3D0",
 
-
+		"x-bx-version": "6.4.11",
 		"x-page-url": quote_plus(pageId),
 		"a-orange-q": "appKey=21646297&appVersion=9.1.0&clientAppIndexVersion=1120191120160145573&clientVersionIndexVersion=0",
 		"x-page-name": pageName,
@@ -102,10 +104,10 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 	if method == 'GET':
 		requestUrl = "https://trade-acs.m.taobao.com/gw/{0}/{1}/?{2}".format(api, v, body)
 		pprint(requestUrl)
-		result = requests.get(requestUrl, timeout=20, headers=headers, proxies = proxies, verify = False)
+		result = requests.get(requestUrl, timeout=20, headers=headers, proxies=proxies, verify=False)
 
 	else:
-		result = requests.post(requestUrl, data=body, timeout=20, headers=headers)
+		result = requests.post(requestUrl, data=body, headers=headers, timeout=20, proxies=proxies, verify=False)
 
 	pprint(result)
 	if result.status_code == requests.codes.ok:
@@ -113,14 +115,16 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 
 
 def getTaobaoSigns(arr):
-	requestURL = "http://192.168.0.107:8066/fakeAliParam"
+	requestURL = "http://192.168.0.102:8066/fakeAliParam"
 
 	headers = {
 		"allow_access": "true",
 		"user-agent": "douyin"
 	}
+	data = json.dumps(arr)
+	pprint(data)
 
-	result = requests.post(requestURL, data=json.dumps(arr), timeout=20, headers=headers)
+	result = requests.post(requestURL, data=arr, timeout=20, headers=headers)
 	pprint(result)
 	dataStr = ""
 	if result.status_code == requests.codes.ok:
@@ -129,9 +133,25 @@ def getTaobaoSigns(arr):
 	return dataStr
 
 
-if __name__ == '__main__':
+def getTaobaoDetail():
 	data = '''{"detail_v":"3.3.2","exParams":"{\\"NAV_START_ACTIVITY_TIME\\":\\"1574237572624\\",\\"NAV_TO_URL_START_TIME\\":\\"1574237572567\\",\\"ad_type\\":\\"1.0\\",\\"appReqFrom\\":\\"detail\\",\\"clientCachedTemplateKeys\\":\\"[]\\",\\"container_type\\":\\"xdetail\\",\\"countryCode\\":\\"CN\\",\\"cpuCore\\":\\"8\\",\\"cpuMaxHz\\":\\"1555200\\",\\"dinamic_v3\\":\\"true\\",\\"id\\":\\"595977491862\\",\\"item_id\\":\\"595977491862\\",\\"latitude\\":\\"31.23238\\",\\"locate\\":\\"guessitem-item\\",\\"longitude\\":\\"121.477733\\",\\"osVersion\\":\\"27\\",\\"phoneType\\":\\"Nexus+6P\\",\\"pvid\\":\\"cade2b68-2075-43e3-80e4-2485fecbfc76\\",\\"rmdChannelCode\\":\\"guessULike\\",\\"scm\\":\\"1007.10088.149221.786_1735_1783_1860_2038_1467_1342_1689_4631_4315_2999\\",\\"soVersion\\":\\"2.0\\",\\"spm\\":\\"a2141.1.guessitemtab_1.2\\",\\"spm-cnt\\":\\"a2141.7631564\\",\\"ultron2\\":\\"true\\",\\"utdid\\":\\"XLWkskakX5EDAEAuXveJ2YJy\\"}","itemNumId":"595977491862"}'''
 	v = "6.0"
 
 	api = "mtop.taobao.detail.getdetail"
 	gwMtopApi(api, v, data, None, None)
+
+
+if __name__ == '__main__':
+	# getTaobaoDetail()
+	api = "mtop.taobao.wireless.amp2.im.message.send"
+	v = "1.0"
+	timestamp = int(time.time())
+	t = str(timestamp)+"123"
+	pprint(timestamp)
+	data = '''{"accessKey":"taobao-app","accessSecret":"taobao-app-secret","bizType":"14","entityId":"0_G_2206965260698#3_1576296399309_0_2206965260698#3","entityType":"G","messages":"[{\\"templateData\\":\\"{\\\\\\"text\\\\\\":\\\\\\"123\\\\\\"}\\",\\"templateId\\":101,\\"bizUnique\\":\\"0_G_2206965260698#3_1576296399309_0_2206965260698#3_1576316146812_791796116\\",\\"summary\\":\\"123\\",\\"ext\\":{\\"bizChainID\\":null,\\"messageSource\\":2}}]","sdkVersion":"1.0.0"}'''
+	pprint(data)
+	jobj = json.loads(data)
+	# entityId = jobj["entityId"]
+	# messages = jobj["messages"]
+	# mjobj = json.loads(messages)
+	gwMtopApi(api, v, data, uid="2206965260698", sid="1db7a736105c4f4ea1239ef6dace4a6e", method="POST")

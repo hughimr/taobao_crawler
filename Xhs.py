@@ -92,7 +92,7 @@ def xhsRequest(xhsApi, shield, deviceId, authorization):
         }
         proxies = None
 
-        result = requests.get(xhsApi, timeout=20, headers=xhsHeaders, proxies=proxies, verify=False)
+        result = requests.get(xhsApi, timeout=20, headers=xhsHeaders, proxies=proxies, verify=True)
         pprint(result.text)
 
 
@@ -118,9 +118,8 @@ def getShield(arr):
 
 
 if __name__ == '__main__':
-    phone = "13335938866"
+    phone = "13335938860"
     authorization = "session.1566023018517656053845"
-    getSmsCode(phone, authorization)
+    # getSmsCode(phone, authorization)
     keyword = u"电脑"
     searchNote(keyword, authorization)
-

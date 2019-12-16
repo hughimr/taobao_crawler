@@ -90,7 +90,19 @@ def xhsRequest(xhsApi, shield, deviceId, authorization):
             "Authorization": authorization,
             "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Redmi 5 Plus MIUI/8.11.2) Resolution/1080*2030 Version/5.31.0 Build/5210121 Device/(Xiaomi;Redmi 5 Plus)"
         }
-        proxies = None
+        proxyUrl = "http://dy.1918.cn/api/sign/proxy?tdsourcetag=s_pctim_aiomsg"
+        result = requests.get(proxyUrl, timeout=20)
+        pprint(result)
+
+        jobj = json.loads(result.text)
+        proxy = jobj["proxy"]
+        pprint(proxy)
+        # proxies = None
+
+        proxies = {
+            'http': 'http://{0}'.format(proxy),
+            'https': 'https://{0}'.format(proxy)
+        }
 
         result = requests.get(xhsApi, timeout=20, headers=xhsHeaders, proxies=proxies, verify=True)
         pprint(result.text)
@@ -123,3 +135,4 @@ if __name__ == '__main__':
     # getSmsCode(phone, authorization)
     keyword = u"电脑"
     searchNote(keyword, authorization)
+

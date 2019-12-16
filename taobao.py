@@ -4,8 +4,8 @@ import os
 
 import json
 import requests
-from urllib.parse import quote
-from urllib.parse import quote_plus
+from urllib import quote
+from urllib import quote_plus
 from pprint import pprint
 import base64
 import time
@@ -38,7 +38,7 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 		"t": str(t),
 		"api": api,
 		"useWua": "1",
-		"data": str(b64Data, 'utf-8'),
+		"data": str(b64Data),
 		"pageId": pageId,
 		"pageName": pageName
 	}
@@ -53,10 +53,10 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 	requestUrl = "https://guide-acs.m.taobao.com/gw/{0}/{1}/".format(api, v)
 	proxies = None
 
-	proxies = {
-		'http': 'http://127.0.0.1:8888',
-		'https': 'https://127.0.0.1:8888'
-	}
+	#proxies = {
+	#	'http': 'http://127.0.0.1:8888',
+	#	'https': 'https://127.0.0.1:8888'
+	#}
 
 
 	headers = {
@@ -115,7 +115,7 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 
 
 def getTaobaoSigns(arr):
-	requestURL = "http://192.168.0.102:8066/fakeAliParam"
+	requestURL = "http://127.0.0.1:8066/fakeAliParam"
 
 	headers = {
 		"allow_access": "true",
@@ -129,7 +129,7 @@ def getTaobaoSigns(arr):
 	dataStr = ""
 	if result.status_code == requests.codes.ok:
 		dataStr = result.text
-	pprint(result.status_code)
+	pprint(dataStr)
 	return dataStr
 
 

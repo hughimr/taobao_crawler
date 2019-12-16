@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e8450e7-6624-4400-a270-da094526cdf0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/taobao.py" beforeDir="false" afterPath="$PROJECT_DIR$/taobao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +13,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/crawlerTaobao$taobao.coverage" NAME="taobao Coverage Results" MODIFIED="1576316201142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crawlerTaobao$Xhs.coverage" NAME="Xhs Coverage Results" MODIFIED="1576223797901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crawlerTaobao$Xhs.coverage" NAME="Xhs Coverage Results" MODIFIED="1576463844658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1658420881">
@@ -38,39 +39,39 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="5" />
-          <entry key="py" value="1248" />
+          <entry key="gitignore" value="6" />
+          <entry key="py" value="1257" />
           <entry key="txt" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Git file" value="5" />
+          <entry key="Git file" value="6" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="1248" />
+          <entry key="Python" value="1257" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2354">
-              <caret line="107" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="23">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taobao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="150" column="473" selection-start-line="150" selection-start-column="473" selection-end-line="150" selection-end-column="473" />
+            <state relative-caret-position="121">
+              <caret line="143" column="26" lean-forward="true" selection-start-line="143" selection-start-column="26" selection-end-line="143" selection-end-column="26" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
-                <marker date="1576316024829" expanded="true" signature="4549:5612" ph="..." />
+                <marker date="1576316201125" expanded="true" signature="4549:5612" ph="..." />
               </folding>
             </state>
           </provider>
@@ -79,11 +80,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Xhs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="859">
-              <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+            <state relative-caret-position="-4">
+              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="e#37#48#0" expanded="true" />
-                <marker date="1576136094916" expanded="true" signature="173:1457" ph="..." />
               </folding>
             </state>
           </provider>
@@ -110,6 +110,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>刚刚好</find>
+      <find>bizTy</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,9 +119,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Xhs.py" />
         <option value="$PROJECT_DIR$/taobao.py" />
+        <option value="$PROJECT_DIR$/Xhs.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -174,7 +175,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.taobao">
+  <component name="RunManager" selected="Python.Xhs">
     <configuration name="Xhs" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="crawlerTaobao" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -225,8 +226,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.taobao" />
         <item itemvalue="Python.Xhs" />
+        <item itemvalue="Python.taobao" />
       </list>
     </recent_temporary>
   </component>
@@ -260,7 +261,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3298647" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32674298" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36836627" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -270,7 +271,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="11" weight="0.3298647" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.17273673" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.5254943" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -290,28 +291,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="添加小红书的请求" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2354">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-653563205/time.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3498">
           <caret line="159" column="4" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Xhs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="859">
-          <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-          <folding>
-            <element signature="e#37#48#0" expanded="true" />
-            <marker date="1576136094916" expanded="true" signature="173:1457" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -324,12 +307,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/taobao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="150" column="473" selection-start-line="150" selection-start-column="473" selection-end-line="150" selection-end-column="473" />
+        <state relative-caret-position="121">
+          <caret line="143" column="26" lean-forward="true" selection-start-line="143" selection-start-column="26" selection-end-line="143" selection-end-column="26" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
-            <marker date="1576316024829" expanded="true" signature="4549:5612" ph="..." />
+            <marker date="1576316201125" expanded="true" signature="4549:5612" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Xhs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="e#37#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>

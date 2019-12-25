@@ -19,14 +19,14 @@ def get_proxies():
 
 
 def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
-    utdid = "XLWkskakX5EDAEAuXveJ2YJy"
+    utdid = "XgAeBL57B3EDAEnXWhoksNr3"
     appKey = "21646297"
     timestamp = time.time()
     t = int(timestamp)
     lat = "31.23238"
     lng = "121.477733"
     ttid = '701186@taobao_android_9.1.0'
-    deviceId = "Akuvfv2rDaTsFg2EJoAi5vGWE8wGLLTOVgrx3XMZ2a_M"
+    deviceId = "AuDnKGSpKEGSPB671gyRVadwJCu_nedoM2FBO_tO93Xb"
     features = "27"
     pageId = "https://market.m.taobao.com/app/tmall-wireless/group-card-618/pages/cc-shareItem?wh_ttid=native"
     pageName = "market.m.taobao.com/app/tmall-wireless/group-card-618/pages/cc-shareItem"
@@ -59,12 +59,12 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
     body = "data=" + quote_plus(data)
     requestUrl = "https://guide-acs.m.taobao.com/gw/{0}/{1}/".format(api, v)
     proxies = None
-    proxy = get_proxies()
-    pprint(proxy)
-    proxies = {
-      'http': 'http://{0}'.format(proxy),
-      'https': 'https://{0}'.format(proxy)
-    }
+    #proxy = get_proxies()
+    #pprint(proxy)
+    #proxies = {
+    #  'http': 'http://{0}'.format(proxy),
+    #  'https': 'https://{0}'.format(proxy)
+    #}
 
 
     headers = {
@@ -86,6 +86,7 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
         "f-refer": "mtop",
         "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
         "A-SLIDER-Q": "appKey%3D21646297%26ver%3D0",
+        "cookie": "cna=oxWHFs4uHn4CAbaVpcgYFEBf; _m_h5_tk=cec03ea8205909a0fa9f4a8ee81f5a4c_1577180533995; _m_h5_tk_enc=48372c254ac45efadd225a5d17f2ccab; l=cBEWVp7qQQcYiNAtBOCwCQKbUz7OSCOAguSJGdDMi_5a71T1p8_Ooj_Mie96VbBd9LTB40Sj2Bp9-etemr_ADhYa2SO1.; isg=BBsbKvCywaOjej1W457VRLixoXYp4C30coPgDQ1Y95ox7DvOlcC_QjluggpHTIfq; csg=c44b7e22; dnk=%5Cu6A21%5Cu7CCA%5Cu7684%5Cu9B45%5Cu5F71; munb=1663056325; sgcookie=R5VSuAIMA5aD9Xx8gI30DKDYu0txcjpfQuAyiWLtvJBg; domain=.taobao.com; enc=1iFZ8vAwFbyDzP2VIvIesi7BRoRAQOP6L%2B%2B%2BE9ZAzzmr3Ve6fNFOXIzoxuNYr8kQX3H%2BgDQQkbTdMRjxaVC6CA%3D%3D",
 
         "x-bx-version": "6.4.11",
         "x-page-url": quote_plus(pageId),
@@ -147,7 +148,7 @@ def getTaobaoDetail():
     v = "6.0"
 
     api = "mtop.taobao.detail.getdetail"
-    gwMtopApi(api, v, data, uid="700358168", sid="1bd8be959a9abd75568c4ba40efbcc1a")
+    gwMtopApi(api, v, data, uid="1663056325", sid="5e11550dfed95881d17ee715df3ffe91")
 
 
 if __name__ == '__main__':

@@ -9,10 +9,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import uuid
 import web
 import json
-from selenium.webdriver.chrome.options import Options
+import threading
 
 chromedriver_path = "chromedriver"  # 改成你的chromedriver的完整路径地址
-
 
 urls = (
     '/taobao/taobao_crawler', 'taobao_crawler'
@@ -27,22 +26,22 @@ class taobao_infos:
     # 对象初始化
     def __init__(self):
         self.url = 'https://login.taobao.com/member/login.jhtml'
-
+        
         options = webdriver.ChromeOptions()
         options.add_experimental_option("prefs", {})  # 不加载图片,加快访问速度
         options.add_experimental_option('excludeSwitches',
                                         ['enable-automation'])  # 此步骤很重要，设置为开发者模式，防止被各大网站识别出来使用了Selenium
-
+        
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--headless')
         self.browser = webdriver.Chrome(executable_path=chromedriver_path, options=options)
         self.wait = WebDriverWait(self.browser, 10)  # 超时时长为10s
-
+    
     def get_qrcode_img(self):
         # 打开网页
         self.browser.get(self.url)
-
+        
         # 等待 密码登录选项 出现
         # password_login = self.wait.until(
         #   EC.presence_of_element_located((By.CSS_SELECTOR, '.J_Static2Quick')))
@@ -50,16 +49,16 @@ class taobao_infos:
         self.browser.delete_all_cookies()
         qr_code = self.wait.until(
             EC.presence_of_element_located((By.CSS_SELECTOR, '.qrcode-img img')))
-
+        
         IMAGE_URL = qr_code.get_attribute("src")
-
+        
         uid = uuid.uuid1().hex
         data = {
-            "image_url":IMAGE_URL,
-            "token":uid
+            "image_url": IMAGE_URL,
+            "token": uid
         }
         return json.dumps(data)
-
+    
     # 登录淘宝
     def check_login(self):
         list_cookies = self.browser.get_cookies()
@@ -76,41 +75,73 @@ class taobao_infos:
             if cookie_name == "unb":
                 cookie_value = cookie['value']
                 data["unb"] = cookie_value
-                self.browser.close()
-                self.browser.quit()
+                self.close()
+    
         return data
+    
+    def close(self):
+        self.browser.close()
+        self.browser.quit()
+
 
 class taobao_crawler:
+    
+    def fun_timer(self):
+        if self.token in browsers.keys():
+            taobao = browsers[self.token]
+            taobao.close()
+
+
     def GET(self):
         data = web.input()
-
+        
         web.header('Content-Type', 'application/json;charset=UTF-8')
-
+        result = {
+            "status":"2000",
+            "msg":"success, please scan qrcode in 15s",
+            "data":{}
+        }
+        
         if "action" in data.keys():
             action = data["action"]
-
+            
             if action == "get_qr_code":
                 taobao = taobao_infos()
                 qr_data = taobao.get_qrcode_img()
                 jobj = json.loads(qr_data)
+                
+                self.token = jobj['token']
+                browsers[self.token] = taobao
 
-                token = jobj['token']
-                browsers[token] = taobao
+                timer = threading.Timer(15, self.fun_timer)
+                timer.start()
                 return qr_data
-
+            
             elif action == "check_login":
                 if "token" in data.keys():
-                    token = data['token']
-                    if token in browsers.keys():
-                        taobao = browsers[token]
+                    self.token = data['token']
+                    if self.token in browsers.keys():
+                        taobao = browsers[self.token]
                         cookie_jobj = taobao.check_login()
                         if "unb" in cookie_jobj.keys():
-                            browsers.pop(token)
-                        return json.dumps(cookie_jobj)
-        return "{}"
-
+                            browsers.pop(self.token)
+                            result["data"] = cookie_jobj
+                    else:
+                        result["status"] = 4000
+                        result["msg"] = "token is invalid or is out of date"
+                else:
+                    result["status"] = 4003
+                    result["msg"] = "token is not found"
+            else:
+                result["status"] = 4004
+                result["msg"] = "action is not found"
+                    
+        return json.dumps(result)
+    
+    
     def POST(self):
         self.GET()
+
 
 if __name__ == "__main__":
     app.run()

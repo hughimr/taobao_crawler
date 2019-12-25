@@ -65,6 +65,7 @@ class taobao_infos:
         list_cookies = self.browser.get_cookies()
         print(list_cookies)
         data = {}
+        # 刷新页面即可更新cookie
         self.browser.refresh()
         # 将获取的的所有cookies添加到浏览器
         for cookie in list_cookies:
@@ -75,7 +76,7 @@ class taobao_infos:
             if cookie_name == "unb":
                 cookie_value = cookie['value']
                 data["unb"] = cookie_value
-        # 刷新页面即可更新cookie
+                self.browser.close()
                 self.browser.quit()
         return data
 
@@ -102,11 +103,10 @@ class taobao_crawler:
                     token = data['token']
                     if token in browsers.keys():
                         taobao = browsers[token]
-                        cookie_data = taobao.check_login()
-                        cookie_jobj = json.loads(cookie_data)
+                        cookie_jobj = taobao.check_login()
                         if "unb" in cookie_jobj.keys():
                             browsers.pop(token)
-                        return cookie_data
+                        return json.dumps(cookie_jobj)
         return "{}"
 
     def POST(self):

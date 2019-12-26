@@ -13,7 +13,7 @@ def buildCommonParam():
     timestamp = time.time()
     t = int(timestamp)
     deviceId = "7a750e37-f5a7-3936-9205-2a5c6d7c00c1"
-    versionName = "5.31.0"
+    versionName = "6.26.0"
     device_fingerprint = "2019041010390171f44ab22c92d2b7884ab2f41da2c43a013aa232c7a86002"
     params = {
         "channel": channel,
@@ -44,7 +44,7 @@ def searchNote(keyword, authorization):
     for key, value in params.items():
         paramStr = paramStr + key + "=" + value + "&"
 
-    api = "https://www.xiaohongshu.com/api/sns/v8/search/notes?" + paramStr
+    api = "https://www.xiaohongshu.com/api/sns/v10/search/notes?" + paramStr
 
     arr = {
         "action": "getShield",
@@ -88,7 +88,7 @@ def xhsRequest(xhsApi, shield, deviceId, authorization):
             "shield": shield,
             "device_id": deviceId,
             "Authorization": authorization,
-            "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Redmi 5 Plus MIUI/8.11.2) Resolution/1080*2030 Version/5.31.0 Build/5210121 Device/(Xiaomi;Redmi 5 Plus)"
+            "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 7.1.2; Redmi 5 Plus MIUI/8.11.2) Resolution/1080*2030 Version/6.26.0 Build/5210121 Device/(Xiaomi;Redmi 5 Plus)"
         }
         proxyUrl = "http://dy.1918.cn/api/sign/proxy?tdsourcetag=s_pctim_aiomsg"
         result = requests.get(proxyUrl, timeout=20)

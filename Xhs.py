@@ -14,7 +14,7 @@ def buildCommonParam():
     t = int(timestamp)
     deviceId = "7a750e37-f5a7-3936-9205-2a5c6d7c00c1"
     versionName = "6.26.0"
-    device_fingerprint = "2019041010390171f44ab22c92d2b7884ab2f41da2c43a013aa232c7a86002"
+    device_fingerprint = "20191209121443dbc50fa4445184eb6d0105db6dc7d8a8019e126986183db0"
     params = {
         "channel": channel,
         "deviceId": deviceId,

@@ -57,15 +57,16 @@ class taobao_infos:
             "image_url": IMAGE_URL,
             "token": uid
         }
-        return json.dumps(data)
+        return data
     
     # 登录淘宝
     def check_login(self):
+        self.browser.refresh()
         list_cookies = self.browser.get_cookies()
         print(list_cookies)
         data = {}
         # 刷新页面即可更新cookie
-        self.browser.refresh()
+        #self.browser.refresh()
         # 将获取的的所有cookies添加到浏览器
         for cookie in list_cookies:
             cookie_name = cookie['name']
@@ -90,6 +91,7 @@ class taobao_crawler:
         if self.token in browsers.keys():
             taobao = browsers[self.token]
             taobao.close()
+            browsers.pop(self.token)
 
 
     def GET(self):
@@ -107,15 +109,14 @@ class taobao_crawler:
             
             if action == "get_qr_code":
                 taobao = taobao_infos()
-                qr_data = taobao.get_qrcode_img()
-                jobj = json.loads(qr_data)
+                jobj = taobao.get_qrcode_img()
                 
                 self.token = jobj['token']
                 browsers[self.token] = taobao
 
-                timer = threading.Timer(15, self.fun_timer)
+                timer = threading.Timer(60, self.fun_timer)
                 timer.start()
-                return qr_data
+                result['data'] = jobj
             
             elif action == "check_login":
                 if "token" in data.keys():
@@ -125,6 +126,9 @@ class taobao_crawler:
                         cookie_jobj = taobao.check_login()
                         if "unb" in cookie_jobj.keys():
                             browsers.pop(self.token)
+                            result["data"] = cookie_jobj
+                            result["msg"] = "scan qrcode success"
+                        else:
                             result["data"] = cookie_jobj
                     else:
                         result["status"] = 4000

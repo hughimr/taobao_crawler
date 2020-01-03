@@ -115,7 +115,7 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
 
 def getTaobaoSigns(arr):
     pprint(arr)
-    requestURL = "http://111.231.203.16:8066/fakeAliParam"
+    requestURL = "http://127.0.0.1:8066/fakeAliParam"
 
     headers = {
         "allow_access": "true",

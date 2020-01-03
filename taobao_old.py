@@ -19,14 +19,14 @@ def get_proxies():
 
 
 def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
-    utdid = "XDcBvR7n1a8DALT5WXIbSK58"
+    utdid = "aDcBvR7n1a8DALT5WXIbSK58"
     appKey = "21646297"
     timestamp = time.time()
     t = int(timestamp)
-    lat = "31.23238"
+    lat = "31.232380"
     lng = "121.477733"
     ttid = '255200@taobao_android_8.1.10'
-    deviceId = "AucyHx9-FS4hNHlY6ba9UqxFLl2yO1suEjUIy_ZzqxOd"
+    deviceId = "BucyHx9-FS4hNHlY6ba9UqxFLl2yO1suEjUIy_ZzqxOd"
     features = "27"
  
     b64Data = base64.b64encode(data.encode("utf-8"))
@@ -78,7 +78,7 @@ def gwMtopApi(api, v, data, uid="0", sid="0", method='GET'):
         "x-mini-wua": dataJobj['miniWua'],
        
         "x-pv": "5.2",
-        "x-umt":"PWtLqf9LOi0KwDVtPuMr/puwKhuLF9bP",
+        "x-umt":"aWtLqf9LOi0KwDVtPuMr/puwKhuLF9bP",
   
         "x-features": features,
         "x-app-conf-v": str(19),

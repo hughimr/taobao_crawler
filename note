@@ -1,0 +1,10 @@
+GET https://www.xiaohongshu.com/api/sns/v1/system_service/vfc_code?zone=86&phone=13016017701&type=login&platform=android&deviceId=29a0ac53-3e06-3735-aa9b-ac6705145994&device_fingerprint=20191012225302cb8635bf8d3eaf4bbd39c0ff463ba01601f8b1729ed94151&device_fingerprint1=20191012225302cb8635bf8d3eaf4bbd39c0ff463ba01601f8b1729ed94151&versionName=6.30.0&channel=VivoPreload&sid=&lang=zh-Hans&t=1579426148&fid=15794255101099ca8e9e004c33190d138a6c98ef7c39&sign=89838108c3aca33465f343f75cf04a21 HTTP/1.1
+xy-common-params: platform=android&deviceId=29a0ac53-3e06-3735-aa9b-ac6705145994&device_fingerprint=20191012225302cb8635bf8d3eaf4bbd39c0ff463ba01601f8b1729ed94151&device_fingerprint1=20191012225302cb8635bf8d3eaf4bbd39c0ff463ba01601f8b1729ed94151&versionName=6.30.0&channel=VivoPreload&sid=&t=1579426148&fid=15794255101099ca8e9e004c33190d138a6c98ef7c39&uis=light&identifier_flag=4
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 9; V1824A Build/PKQ1.181216.001) Resolution/1080*2340 Version/6.30.0 Build/6300132 Device/(vivo;V1824A) discover/6.30.0 NetType/WiFi
+shield: 9df74e953dcc1700b6acf2227df91cde
+xy-platform-info: platform=android&build=6300132&deviceId=29a0ac53-3e06-3735-aa9b-ac6705145994
+Host: www.xiaohongshu.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
